@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
 import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const WhoWeAreRoute = WhoWeAreRouteImport.update({
 const WhatWeDoRoute = WhatWeDoRouteImport.update({
   id: '/what-we-do',
   path: '/what-we-do',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/knowledge': typeof KnowledgeRoute
   '/what-we-do': typeof WhatWeDoRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/knowledge': typeof KnowledgeRoute
   '/what-we-do': typeof WhatWeDoRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
@@ -51,20 +59,28 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/knowledge': typeof KnowledgeRoute
   '/what-we-do': typeof WhatWeDoRoute
   '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/what-we-do' | '/who-we-are'
+  fullPaths: '/' | '/contact' | '/knowledge' | '/what-we-do' | '/who-we-are'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/what-we-do' | '/who-we-are'
-  id: '__root__' | '/' | '/contact' | '/what-we-do' | '/who-we-are'
+  to: '/' | '/contact' | '/knowledge' | '/what-we-do' | '/who-we-are'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/knowledge'
+    | '/what-we-do'
+    | '/who-we-are'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
+  KnowledgeRoute: typeof KnowledgeRoute
   WhatWeDoRoute: typeof WhatWeDoRoute
   WhoWeAreRoute: typeof WhoWeAreRoute
 }
@@ -83,6 +99,13 @@ declare module '@tanstack/react-router' {
       path: '/what-we-do'
       fullPath: '/what-we-do'
       preLoaderRoute: typeof WhatWeDoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -105,6 +128,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
+  KnowledgeRoute: KnowledgeRoute,
   WhatWeDoRoute: WhatWeDoRoute,
   WhoWeAreRoute: WhoWeAreRoute,
 }
