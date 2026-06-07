@@ -81,10 +81,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Integrated Corporate Secretarial & Legal Services. Architecting trust, governance, and lasting corporate relationships for over 30 years." },
       { name: "author", content: "R&A Associates" },
       { property: "og:title", content: "R&A Associates — Excellence Incorporated" },
-      { property: "og:description", content: "Integrated Corporate Secretarial & Legal Services for over 30 years." },
+      { property: "og:description", content: "Integrated Corporate Secretarial & Legal Services. Architecting trust, governance, and lasting corporate relationships for over 30 years." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "R&A Associates — Excellence Incorporated" },
+      { name: "twitter:description", content: "Integrated Corporate Secretarial & Legal Services. Architecting trust, governance, and lasting corporate relationships for over 30 years." },
     ],
     links: [
       {
