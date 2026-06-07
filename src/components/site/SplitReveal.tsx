@@ -33,7 +33,7 @@ export function SplitReveal({
   }, [delay]);
 
   const words = children.split(" ");
-  const Comp = Tag as never;
+  const Comp = Tag as React.ElementType;
   return (
     <Comp ref={ref as never} className={className}>
       {words.map((w, i) => (
