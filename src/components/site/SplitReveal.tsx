@@ -10,7 +10,7 @@ export function SplitReveal({
   children: string;
   delay?: number;
   className?: string;
-  as?: "h1" | "h2" | "h3" | "p";
+  as?: "h1" | "h2" | "h3" | "p" | "span" | "div";
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
