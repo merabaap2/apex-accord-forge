@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
@@ -44,7 +46,7 @@ export function NetworkCanvas() {
     const pGeom = new THREE.BufferGeometry();
     pGeom.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const pMat = new THREE.PointsMaterial({
-      color: 0x0b132b,
+      color: 0x2b4a9e,
       size: 0.022,
       transparent: true,
       opacity: 0.9,
@@ -63,9 +65,9 @@ export function NetworkCanvas() {
     const lGeom = new THREE.BufferGeometry();
     lGeom.setAttribute("position", new THREE.Float32BufferAttribute(linePos, 3));
     const lMat = new THREE.LineBasicMaterial({
-      color: 0x1c2541,
+      color: 0xc69a48,
       transparent: true,
-      opacity: 0.18,
+      opacity: 0.42,
     });
     group.add(new THREE.LineSegments(lGeom, lMat));
 

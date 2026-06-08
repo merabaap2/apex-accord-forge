@@ -209,15 +209,55 @@ function Index() {
       </section>
 
       {/* CLIENTS strip */}
-      <section className="border-y border-border py-20">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+      <section className="border-y border-border py-20 bg-secondary/35">
+        <div className="mx-auto max-w-[1200px] px-6">
           <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground text-center mb-12">
-            — Trusted by enterprises listed on global exchanges
+            — Trusted by Leading Enterprises &amp; Partners
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-10 items-center">
-            {["MedPlus","ADP","My Home Group","D.E. Shaw","Aha","Bourntec","Connect India","Arcesium","Sierra-Cedar","DMIA","Nestern","Vaya"].map((c) => (
-              <div key={c} className="font-display text-base text-muted-foreground/70 hover:text-foreground transition-colors text-center tracking-wide">
-                {c}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-1 gap-y-2 items-center justify-items-center">
+            {[
+              { name: "ADP", logo: "/Partners/ADP.png" },
+              { name: "Alimak Hek", logo: "/Partners/Alimak-hek.png" },
+              { name: "Andhra Bank", logo: "/Partners/Andhra-bank.png" },
+              { name: "DE Shaw & Co", logo: "/Partners/DE Shaw-co.png" },
+              { name: "DMIA", logo: "/Partners/DMIA.png" },
+              { name: "DQ", logo: "/Partners/DQ.png" },
+              { name: "IITH", logo: "/Partners/IITH.png" },
+              { name: "Lockheed Martin", logo: "/Partners/Lockhead-martin.png" },
+              { name: "Nava Bharat Ventures Ltd", logo: "/Partners/Nava-bharat-ventures-ltd.png" },
+              { name: "Nest Con", logo: "/Partners/Nest-con.png" },
+              { name: "Nikunj", logo: "/Partners/Nikunj.png" },
+              { name: "Operation Mercy", logo: "/Partners/Operation-mercy.png" },
+              { name: "Patil Rail", logo: "/Partners/Patil-rail.png" },
+              { name: "SINE", logo: "/Partners/SINE.png" },
+              { name: "Swastik Species", logo: "/Partners/Swastik-speices.png" },
+              { name: "VAYA", logo: "/Partners/VAYA.png" },
+              { name: "Aha", logo: "/Partners/aha.png" },
+              { name: "Amara Raja", logo: "/Partners/amararaja.png" },
+              { name: "Arcesium", logo: "/Partners/arcesium.png" },
+              { name: "Bourntec", logo: "/Partners/bourntec.png" },
+              { name: "Clippers", logo: "/Partners/clippers.png" },
+              { name: "Cognigix", logo: "/Partners/cognigix.png" },
+              { name: "Connect India", logo: "/Partners/connectindia.png" },
+              { name: "Hyundai", logo: "/Partners/hyundai.png" },
+              { name: "Manthan International School", logo: "/Partners/manthan-international-school.png" },
+              { name: "Medplus", logo: "/Partners/medplus.png" },
+              { name: "My Home Group", logo: "/Partners/my-home-group.png" },
+              { name: "NCL Group", logo: "/Partners/ncl-group.png" },
+              { name: "Nephroplus", logo: "/Partners/nephroplus.png" },
+              { name: "Ravi Leela", logo: "/Partners/ravi-leela.png" },
+              { name: "Sierra Cedar", logo: "/Partners/sierra-cedar.png" },
+              { name: "Suryalata", logo: "/Partners/suryalata.png" },
+              { name: "T-Hub", logo: "/Partners/t-hub.png" },
+              { name: "TV9", logo: "/Partners/tv9.png" },
+            ].map((p) => (
+              <div key={p.name} className="flex items-center justify-center h-24 w-full -mx-8 -my-4 transition-transform duration-300 hover:scale-110 hover:z-10">
+                <img
+                  src={p.logo}
+                  alt={`${p.name} logo`}
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>

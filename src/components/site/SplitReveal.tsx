@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -37,7 +39,7 @@ export function SplitReveal({
   return (
     <Comp ref={ref as never} className={className}>
       {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom">
+        <span key={i} className="inline-block overflow-hidden align-bottom pb-4 -mb-4 pr-3 -mr-3">
           <span data-word className="inline-block will-change-transform">
             {w}
             {i < words.length - 1 ? "\u00A0" : ""}

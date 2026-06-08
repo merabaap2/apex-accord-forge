@@ -1,11 +1,13 @@
+"use client";
+
 import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
 const offices = [
-  { city: "Hyderabad", note: "Head Office", lines: ["6-3-1090, TSR Towers", "Rajbhavan Road"] },
-  { city: "Gurgaon", note: "North India", lines: ["DLF Cyber City", "Phase III"] },
-  { city: "Mumbai", note: "Western Region", lines: ["Bandra Kurla Complex", "Mumbai 400051"] },
-  { city: "Chennai", note: "Southern Region", lines: ["Nungambakkam", "Chennai 600034"] },
+  { city: "Hyderabad", note: "Head Office", lines: ["T 202, Technopolis, 1-10-74/B", "Chikoti Gardens, Begumpet - 500016"] },
+  { city: "Gurgaon", note: "North India", lines: ["#451, City Cooperative Society", "Sector 55, Gurgaon - 122011"] },
+  { city: "Mumbai", note: "Western Region", lines: ["C-13, Modinagar, Mathuradas Rd", "Kandivali West, Mumbai - 400067"] },
+  { city: "Chennai", note: "Southern Region", lines: ["T16, B Block, ICIPL Amora Apts", "Manapakkam, Chennai - 600125"] },
 ];
 
 export function Footer() {
@@ -39,29 +41,29 @@ export function Footer() {
 
           <div className="grid grid-cols-2 gap-8 text-sm">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-4">Firm</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-4">WHO WE ARE</p>
               <ul className="space-y-2 text-white/70">
-                <li>Mission &amp; Values</li>
+                <li>Who We Are</li>
                 <li>Our Team</li>
-                <li>Chairperson's Desk</li>
+                <li>Desk of Chairperson</li>
                 <li>CSR</li>
               </ul>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-4">Knowledge</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-4">KNOWLEDGE CENTER</p>
               <ul className="space-y-2 text-white/70">
                 <li>Newsletters</li>
-                <li>Resource Links</li>
+                <li>Briefs</li>
+                <li>Regulations Updates</li>
                 <li>FAQs</li>
-                <li>Case Studies</li>
               </ul>
             </div>
           </div>
 
           <div>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-4">Quarterly Brief</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-4">Subscribe Now</p>
             <p className="text-sm text-white/60 mb-5">
-              Compliance intelligence, regulatory updates and editorial essays — delivered four times a year.
+              Get the latest updates in your inbox
             </p>
             <form
               onSubmit={(e) => {

@@ -1,4 +1,7 @@
-import { Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 import { ArrowUpRight, Menu, X } from "lucide-react";
@@ -14,6 +17,8 @@ const items = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 12);
     fn();
@@ -35,19 +40,20 @@ export function Nav() {
           {items.map((it) => (
             <Link
               key={it.to}
-              to={it.to}
-              className="group relative px-4 py-2 text-sm text-foreground/80 hover:text-foreground transition-colors"
-              activeProps={{ className: "text-foreground" }}
+              href={it.to}
+              className={`group relative px-4 py-2 text-sm transition-colors ${
+                pathname === it.to ? "text-foreground font-medium" : "text-foreground/80 hover:text-foreground"
+              }`}
             >
               {it.label}
-              <span className="pointer-events-none absolute left-4 right-4 -bottom-0.5 h-px bg-foreground origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              <span className={`pointer-events-none absolute left-4 right-4 -bottom-0.5 h-0.5 bg-accent origin-left transition-transform duration-300 ${pathname === it.to ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
             </Link>
           ))}
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            to="/contact"
-            className="hidden md:inline-flex items-center gap-2 border border-foreground bg-foreground text-background px-4 py-2 text-xs font-medium uppercase tracking-[0.15em] hover:bg-background hover:text-foreground transition-colors"
+            href="/contact"
+            className="hidden md:inline-flex items-center gap-2 border border-primary bg-primary text-primary-foreground px-4 py-2 text-xs font-medium uppercase tracking-[0.15em] hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300"
           >
             Initiate Consultation
             <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.75} />
@@ -67,9 +73,11 @@ export function Nav() {
             {items.map((it) => (
               <Link
                 key={it.to}
-                to={it.to}
+                href={it.to}
                 onClick={() => setOpen(false)}
-                className="py-2 text-sm border-b border-border/50"
+                className={`py-2 text-sm border-b border-border/50 ${
+                  pathname === it.to ? "text-foreground font-medium" : "text-foreground/80"
+                }`}
               >
                 {it.label}
               </Link>
